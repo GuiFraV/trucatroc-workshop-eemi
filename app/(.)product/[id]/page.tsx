@@ -37,14 +37,10 @@ function Modal() {
       }}
       className="relative z-50"
     >
-      {/* The backdrop, rendered as a fixed sibling to the panel container */}
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
 
-      {/* Full-screen scrollable container */}
       <div className="fixed inset-0 overflow-y-auto">
-        {/* Container to center the panel */}
         <div className="flex min-h-full items-center justify-center p-4">
-          {/* The actual dialog panel  */}
           <Dialog.Panel className="mx-auto max-w-3xl rounded bg-white p-10">
             {loading ? (
               <div className="h-8 w-8 rounded-full border-2 border-dotted border-blue-600 animate-spin" />
@@ -64,7 +60,6 @@ function Modal() {
                       <p>{product?.rating.rate}</p>
                       {product?.rating.rate && (
                         <div className="flex items-center ml-2 mr-6">
-                          {/* Display 5 stars but display the rate ones as StarIconOutline  */}
                           {Array.from(
                             { length: Math.floor(product.rating.rate) },
                             (_, i) => (
@@ -75,7 +70,6 @@ function Modal() {
                             )
                           )}
 
-                          {/* Display the rest of the stars as StarIconOutline  */}
                           {Array.from(
                             { length: 5 - Math.floor(product.rating.rate) },
                             (_, i) => (
@@ -88,7 +82,7 @@ function Modal() {
                         </div>
                       )}
                       <p className="text-blue-600 hover:underline cursor-pointer text-xs">
-                        See all {product?.rating.count} reviews
+                         {product?.rating.count} reviews
                       </p>
                     </div>
 
@@ -101,12 +95,12 @@ function Modal() {
                     <button className="button w-full bg-blue-600 text-white border-transparent hover:border-blue-600 hover:bg-transparent hover:text-black">
                       Troc-moi
                     </button>
-                    {/* <button
-                      onClick={() => window.location.reload()}
+                    <button
+                      onClick={() => router.push('/')}
                       className="button w-full bg-transparent border-blue-600 hover:bg-blue-600 hover:text-white hover:border-transparent"
                     >
-                      View full details
-                    </button> */}
+                      Retour au catalogue
+                    </button>
                   </div>
                 </div>
               </div>
